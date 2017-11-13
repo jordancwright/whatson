@@ -34,7 +34,7 @@ export class AppComponent {
   public ngOnInit(): any {
     let date = new Date().toISOString().slice(0, -14);
 
-    var startDate: Date = this.getDateForTickerMatches(0);
+    var startDate: Date = this.getDateForTickerMatches(-7);
     var endDate: Date = this.getDateForTickerMatches(7);
     console.log(startDate);
     console.log(endDate);
