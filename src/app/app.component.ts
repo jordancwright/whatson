@@ -15,8 +15,8 @@ import { Opponent } from '../types/matches/opponent';
 
 export class AppComponent {
   title = 'app';
-  tickerDisciplineIds: string[] = ['hearthstone', 'counterstrike_go', 'leagueoflegends', 'overwatch', 'supersmashbros', 'supersmashbros_melee', 'rocketleague', 'halo5_guardians', 'dota2'];
-  displayNames: string[] = ['Hearthstone', 'CS:GO', 'League of Legends', 'Overwatch', 'Smash 4', 'Melee', 'Rocket League', 'Halo 5', 'DOTA 2'];
+  tickerDisciplineIds: string[] = ['hearthstone', 'counterstrike_go', 'leagueoflegends', 'overwatch', 'supersmashbros', 'supersmashbros_melee', 'rocketleague', 'vainglory', 'dota2'];
+  displayNames: string[] = ['Hearthstone', 'CS:GO', 'League of Legends', 'Overwatch', 'Smash 4', 'Melee', 'Rocket League', 'Vainglory', 'DOTA 2'];
   gameNameMap: Map<String, String> = new Map();
 
   results: Tournament[];
