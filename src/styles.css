@@ -1,3 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~font-awesome/css/font-awesome.css";
+
+body {
+  background: linear-gradient(52deg, #5383e8, #3991ef 31%, #3892f0 32%, #3594f1 36%, #00b2ff);
+  color: white;
+}
+
+.nav {
+  margin-bottom: 100px;
+}
+
+.content {
+  margin-top: 2%;
+}
+
+.testing {
+  color: red;
+}

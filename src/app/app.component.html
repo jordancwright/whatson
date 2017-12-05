@@ -1,42 +1,21 @@
-<div class="container" style="text-align:center" *ngIf="matchMap !== undefined">
-    <div class="header">
-        <h1>WHATSON.gg</h1>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <a class="navbar-brand header" href="#">
+        <h1>
+            WHATSON.gg
+        </h1>
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [ngClass]="{ active: isActive('/calendar')}">
+                <a class="nav-link" href="">Calendar</a>
+            </li>
+            <li class="nav-item" [ngClass]="{ active: isActive('/about')}">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+        </ul>
     </div>
-    <div class="row gameRow" style="text-align:center">
-        <div *ngFor="let game of displayNames" class="col-md-4 col-xs-12 matchBlock scrollbar">
-            <div style="display:block" class="innerMatchBlock">
-                <h1 class="gameName">{{game}}</h1>
-                <div *ngIf="matchMap.get(game).length === 0">
-                    There are no {{game}} matches in the near future, check again soon!
-                </div>
-                <div *ngIf="matchMap.get(game).length !== 0">
-                    <div *ngFor="let match of matchMap.get(game)">
-                        <div class="matchCard row" style="clear:both">
-                            <span style="float:left;display:block" class="col-md-6">
-                                <div>
-                                    <p class="oppName top {{checkWinner(match)[0]}}" *ngIf="match.opponents[0].participant">{{match.opponents[0].participant.name}}</p>
-                                    <p class="oppName top {{checkWinner(match)[0]}}" *ngIf="!match.opponents[0].participant">TBD</p>
-                                </div>
-                                <div>
-                                    <p class="oppName bot {{checkWinner(match)[1]}}" *ngIf="match.opponents[1].participant">{{match.opponents[1].participant.name}}</p>
-                                    <p class="oppName bot {{checkWinner(match)[1]}}" *ngIf="!match.opponents[1].participant">TBD</p>
-                                </div>
-                            </span>
-                            <span class="time col-md-6" style="float:right !important;display:block">
-                                <div>
-                                    {{converToLocalTime(match.date.toString())}}
-                                </div>
-                                <div>
-                                    {{getNormalDate(match.date.toString())}}
-                                </div>
-                                <div>
-                                    {{match.tournament.name}}
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</nav>
+<div class="content">
+    <router-outlet></router-outlet>
 </div>
+

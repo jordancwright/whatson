@@ -5,15 +5,21 @@ import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './components/about/about.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

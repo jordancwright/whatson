@@ -1,0 +1,50 @@
+<div class="container" style="text-align:center" *ngIf="matchMap !== undefined">
+    <div class="row gameRow" style="text-align:center">
+        <div *ngFor="let game of displayNames" class="col-md-4 col-xs-12">
+            <div class="matchBlockHeader">
+                <h1 class="gameName">{{game}}</h1>
+                <div class="seeMore" *ngIf="matchMap.get(game).length >= 3">
+                    <a class="btn btn-warn" href="">
+                        <p class="seeMoreWords">See More</p>
+                    </a>
+                </div>
+            </div>
+            <div class="noGamesMessage" *ngIf="matchMap.get(game).length === 0">
+                <div class="noGamesText">
+                    There are no {{game}} matches in the near future, check again soon!
+                </div>
+            </div>
+            <div class="matchBlock scrollbar col-md-12" *ngIf="matchMap.get(game).length !== 0">
+                <div class="innerMatchBlock">
+                    <div>
+                        <div *ngFor="let match of matchMap.get(game)">
+                            <div class="matchCard row" style="clear:both">
+                                <span style="float:left;display:block" class="col-md-6">
+                                    <div>
+                                        <p class="oppName top {{checkWinner(match)[0]}}" *ngIf="match.opponents[0].participant">{{match.opponents[0].participant.name}}</p>
+                                        <p class="oppName top {{checkWinner(match)[0]}}" *ngIf="!match.opponents[0].participant">TBD</p>
+                                    </div>
+                                    <div>
+                                        <p class="oppName bot {{checkWinner(match)[1]}}" *ngIf="match.opponents[1].participant">{{match.opponents[1].participant.name}}</p>
+                                        <p class="oppName bot {{checkWinner(match)[1]}}" *ngIf="!match.opponents[1].participant">TBD</p>
+                                    </div>
+                                </span>
+                                <span class="time col-md-6" style="float:right !important;display:block">
+                                    <div>
+                                        {{converToLocalTime(match.date.toString())}}
+                                    </div>
+                                    <div>
+                                        {{getNormalDate(match.date.toString())}}
+                                    </div>
+                                    <div>
+                                        {{match.tournament.name}}
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
